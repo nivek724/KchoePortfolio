@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google';
 import LocalFont from 'next/font/local';
 import { Metadata } from 'next';
 import { Analytics } from './components/analytics';
+import ActiveSectionContextProvider from './context/active-section-context';
 
 export const metadata: Metadata = {
   title: {
@@ -56,9 +57,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <Analytics />
       </head>
-      <body className={`bg-black ${process.env.NODE_ENV === 'development' ? 'debug-screens' : undefined}`}>
-        {children}
-      </body>
+      <ActiveSectionContextProvider>
+        <body
+          className={`bg-black ${process.env.NODE_ENV === 'development' ? 'debug-screens' : undefined} no-scrollbar`}
+        >
+          {children}
+        </body>
+      </ActiveSectionContextProvider>
     </html>
   );
 }

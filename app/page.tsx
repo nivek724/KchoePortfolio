@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import React from 'react';
 import Particles from './components/particles';
+import Skills from './components/skills';
+import Bio from './components/bio';
 
 const navigation = [
   { name: 'Projects', href: '/projects' },
@@ -10,7 +12,7 @@ const navigation = [
 export default function Home() {
   return (
     <div>
-      <div className='flex flex-col items-center justify-center w-screen h-screen overflow-hidden bg-gradient-to-tl from-black via-zinc-600/20 to-black'>
+      <div className='flex flex-col items-center justify-center h-screen overflow-hidden bg-gradient-to-tl from-black via-zinc-600/20 to-black'>
         <nav className='my-16 animate-fade-in'>
           <ul className='flex flex-wrap items-center justify-center gap-4'>
             {navigation.map((item) => (
@@ -20,7 +22,7 @@ export default function Home() {
             ))}
           </ul>
         </nav>
-        <div className='hidden w-screen h-px animate-glow md:block animate-fade-left bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0' />
+        <div className='hidden h-px animate-glow md:block animate-fade-left bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0' />
         <Particles className='absolute inset-0 -z-10 animate-fade-in' quantity={100} />
         <h1 className='z-10 text-4xl text-transparent duration-1000 bg-white cursor-default text-edge-outline animate-title font-display sm:text-6xl md:text-9xl whitespace-nowrap bg-clip-text '>
           KChoe
@@ -40,8 +42,12 @@ export default function Home() {
           </h2>
         </div>
       </div>
-      <div className='hidden top-[-10] h-screen w-screen flex flex-col items-center justify-center bg-gradient-to-bl from-black via-zinc-600/20 to-black'>
-        <h2 className='text-sm text-zinc-500 mx-6'>Testing out scroll portion</h2>
+      <div className=' relative top-[-10] h-screen flex flex-col items-center justify-center bg-gradient-to-bl from-black via-zinc-600/20 to-black'>
+        <Skills />
+        <Particles className='absolute inset-0 -z-10 animate-fade-in' quantity={100} />
+      </div>
+      <div className=' relative top-[-10] h-screen flex flex-col items-center justify-start bg-gradient-to-tl from-black via-zinc-600/20 to-black'>
+        <Bio />
         <Particles className='absolute inset-0 -z-10 animate-fade-in' quantity={100} />
       </div>
     </div>
