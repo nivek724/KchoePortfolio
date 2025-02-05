@@ -2,14 +2,17 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { isMobile } from 'react-device-detect';
 
 const fadeInAnimationVariants = {
   initial: {
     opacity: 0,
-    x: 1000,
+    x: isMobile ? 0 : 600,
+    overflow: 'hidden',
   },
   animate: () => ({
     opacity: 1,
+    overflow: 'visible',
     x: 0,
     duration: 1,
     ease: 'linear',
